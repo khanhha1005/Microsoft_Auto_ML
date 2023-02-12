@@ -29,7 +29,7 @@ def run(raw_data):
     """
     logging.info("Request received")
     data = json.loads(raw_data)["data"]
-    data = numpy.array(data)
+    data = numpy.array(data).reshape(1, -1)
     result = model.predict(data)
     logging.info("Request processed")
     return result.tolist()
